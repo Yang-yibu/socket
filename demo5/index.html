@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebSocket</title>
+    <script src="./socket.io-2.2.0.dev.js"></script>
+</head>
+
+<body>
+    <script>
+        var socket = io('ws://localhost:3000');
+        socket.on('news', function (data) {
+            console.log('news: ', data);
+            socket.emit('my other event', { my: 'data' })
+        });
+    </script>
+    <h1>Chat Room</h1>
+    <input type="text" name="" id="sendText" />
+    <button id="sendBtn">发送</button>
+</body>
+
+</html>
